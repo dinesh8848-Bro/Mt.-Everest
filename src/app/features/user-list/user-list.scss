@@ -1,0 +1,269 @@
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+
+  h2 {
+    margin: 0 0 4px;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  p {
+    margin: 0;
+    color: var(--color-muted);
+    font-size: 14px;
+  }
+}
+
+.search-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 4px 4px 4px 16px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 10px 0;
+  font-size: 14px;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.role-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 8px;
+  border-left: 1px solid var(--color-border);
+  padding-left: 16px;
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+  }
+
+  select {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text);
+    background: var(--color-bg);
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.form-card,
+.table-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  margin-bottom: 20px;
+
+  h3 {
+    margin: 0 0 16px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th, td {
+    text-align: left;
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  th {
+    color: var(--color-muted);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+}
+
+tr.disabled-row {
+  opacity: 0.55;
+}
+
+.empty-state {
+  color: var(--color-muted);
+  text-align: center;
+  padding: 24px 0;
+}
+
+.btn-primary {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--color-primary);
+  color: #ffffff;
+
+  &:hover {
+    background: var(--color-primary-dark);
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 24px;
+  width: 400px;
+  max-width: 90vw;
+  position: relative;
+
+  h3 {
+    margin: 0 0 16px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: var(--color-muted);
+}
+
+.actions-col {
+  white-space: nowrap;
+  text-align: right;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  color: var(--color-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  line-height: 1;
+
+  &:hover {
+    background: #f2f4f8;
+    color: var(--color-text);
+  }
+
+  &.danger:hover {
+    background: #fdeceb;
+    color: #e0384a;
+  }
+
+  &.active-toggle {
+    color: #1f9d55;
+
+    &:hover {
+      background: #e9f9ee;
+      color: #1f9d55;
+    }
+  }
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.role-admin {
+  background: #f3ebfe;
+  color: #7e3ff2;
+  border-color: #e4d4fb;
+}
+
+.role-manager {
+  background: #e9f9ee;
+  color: #1f9d55;
+  border-color: #bfe8cc;
+}
+
+.role-editor {
+  background: #fff8e1;
+  color: #b8860b;
+  border-color: #f5e2a8;
+}
+
+.role-viewer {
+  background: #eaf3ff;
+  color: #2f6fdb;
+  border-color: #cfe2fb;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+
+  &.enabled {
+    background: #e9f9ee;
+    color: #1f9d55;
+  }
+
+  &.disabled {
+    background: #f1f2f5;
+    color: var(--color-muted);
+  }
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
