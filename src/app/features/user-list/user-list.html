@@ -55,31 +55,41 @@
     
 
         @for (user of users; track user.id) {
-           <tr [class.disabled-row]="!user.enabled">
-  <td>{{ user.name }}</td>
-  <td><span [class]="'role-badge role-' + user.role.toLowerCase()">{{ user.role }}</span></td>
-  <td>
-    <span class="status" [class.enabled]="user.enabled" [class.disabled]="!user.enabled">
-     <span class="status-dot"></span>
-      {{ user.enabled ? 'Enabled' : 'Disabled' }}
-    </span>
-  </td>
-  <td class="actions-col">
-    <button class="icon-btn" title="Edit" (click)="openEditModal(user)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
-      </svg>
-    </button>
-    
+  <tr [class.disabled-row]="!user.enabled">
+    <td>{{ user.name }}</td>
+    <td><span [class]="'role-badge role-' + user.role.toLowerCase()">{{ user.role }}</span></td>
+    <td>
+      <span class="status-pill" [class.enabled]="user.enabled" [class.disabled]="!user.enabled">
+        <span class="status-dot"></span>
+        {{ user.enabled ? 'Active' : 'Disabled' }}
+      </span>
+    </td>
+    <td class="actions-col">
+      <button class="icon-btn" title="Edit" (click)="openEditModal(user)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+        </svg>
+      </button>
+      <button class="icon-btn" [class.active-toggle]="user.enabled" [title]="user.enabled ? 'Disable' : 'Enable'" (click)="onToggleEnabled(user)">
+        @if (user.enabled) {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M17 11l2 2 4-4" />
+          </svg>
+        } @else {
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M17 8l4 4M21 8l-4 4" />
+          </svg>
+        }
+      </button>
+      <button class="icon-btn danger" title="Delete" (click)="onDelete(user)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" /><path d="M10 11v6" /><path d="M14 11v6" />
+        </svg>
+      </button>
+    </td>
+  </tr>
+}
   
-    <button class="icon-btn danger" title="Delete" (click)="onDelete(user)">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M3 6h18" /><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" /><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6" /><path d="M10 11v6" /><path d="M14 11v6" />
-      </svg>
-    </button>
-  </td>
-</tr>
-   }
   
   </tbody>
   </table>
